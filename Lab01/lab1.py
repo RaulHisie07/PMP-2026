@@ -21,4 +21,14 @@ for i in range(N):
         numar_bile_rosii += 1
     
 probabilitate_simulata = numar_bile_rosii / N 
-print(probabilitate_simulata)
+
+probabilitate_teoretica = (
+    (3 / 6) * (3 / 10) +
+    (1 / 6) * (4 / 10) +
+    (2 / 6) * (3 / 10)
+)
+print("Probabilitatea simulata:", probabilitate_simulata)
+
+print("Probabilitatea teoretica:", probabilitate_teoretica)
+
+print("Diferenta:", abs(probabilitate_simulata - probabilitate_teoretica))
