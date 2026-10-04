@@ -1,0 +1,33 @@
+import random
+import matplotlib.pyplot as plt
+
+numar_jocuri = 100000
+p = 0.5
+
+valori_S = []
+
+for i in range(numar_jocuri):
+   N=0
+   S=0
+
+   while True:
+      N = N+1
+    
+      if random.random() < p:
+        z = random.randint(1,6)
+        S = S + (z-3)
+        break
+      else:
+         S = S - 0.5
+
+   valori_S.append(S)
+
+avg_S = sum(valori_S) / numar_jocuri
+
+print("Media lui S:",avg_S)
+
+plt.hist(valori_S, bins=30, edgecolor="black")
+plt.xlabel("Suma S")
+plt.ylabel("Numarul de aparitii")
+plt.title("Distributia sumei S")
+plt.show()
