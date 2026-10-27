@@ -1,0 +1,37 @@
+O = 1
+L = 1
+M = 1
+
+if O == 1:
+    oferta_spam = 0.7
+    oferta_nonspam = 0.1
+else:
+    oferta_spam = 0.3
+    oferta_nonspam = 0.9
+
+if L == 1:
+    link_spam = 0.8
+    link_nonspam = 0.3
+    lung_spam = 0.9
+    lung_nonspam = 0.6
+else:
+    link_spam = 0.2
+    link_nonspam = 0.7
+    lung_spam = 0.5
+    lung_nonspam = 0.2
+
+if M == 0:
+    lung_spam = 1 - lung_spam
+    lung_nonspam = 1 - lung_nonspam
+
+a = 0.4 * oferta_spam * link_spam * lung_spam
+b = 0.6 * oferta_nonspam * link_nonspam * lung_nonspam
+
+probabilitate_spam = a / (a + b)
+
+print("Probabilitatea de spam:", probabilitate_spam)
+
+if probabilitate_spam >= 0.5:
+    print("Clasificare: spam")
+else:
+    print("Clasificare: non-spam")
